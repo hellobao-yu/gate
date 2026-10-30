@@ -80,14 +80,18 @@ COUNTRY_ZH = {
     "MN": "蒙古", "NP": "尼泊尔", "LK": "斯里兰卡", "MM": "缅甸",
 }
 
-# 静态优选域名池
+# 静态优选入口池（域名 / IP:端口）
+# 末尾 14 个 IP 为 BestCF 优选 IP，2026-10-30 本机直连实测：0 丢包、HKG 落地、Worker 域名 SNI 连通
 EDGE_HOSTS = [
     h.strip()
     for h in os.environ.get(
         "EDGE_HOSTS",
         "saas.sin.fan:443,cdn.204910.best:443,www.mfyx.cn:443,p.etime.vip:443,cdn.ctn32.us.kg:443,cf.877774.xyz:443,spring.io:443,"
         "cf.nyanya.moe:443,www.sloomb.com:443,op.chinwa.eu.cc:443,www.leics.police.uk:443,securecircle.com:443,www.shopify.com:443,"
-        "www.carousell.sg:443,www.dbs.com.sg:443,openai.com:443,linear.app:443,www.bilibili.com:443,uspto.gov:443,www.vmware.com:443",
+        "www.carousell.sg:443,www.dbs.com.sg:443,openai.com:443,linear.app:443,www.bilibili.com:443,uspto.gov:443,www.vmware.com:443,"
+        "104.17.114.74:443,104.16.147.238:443,104.17.173.46:443,104.17.113.154:443,104.17.191.74:443,104.17.180.146:443,"
+        "104.17.161.186:443,104.16.245.125:443,104.19.35.211:443,104.17.214.107:443,104.19.61.165:443,104.17.150.235:443,"
+        "104.19.145.159:443,104.19.48.253:443",
     ).split(",")
     if h.strip()
 ]
